@@ -11,61 +11,55 @@ public class Movement : MonoBehaviour
 
     private Animator animator;
 
-    private PlayerInput input;
-    private Vector3 movement;
-
-    private void Awake()
-    {
-        input = new PlayerInput();
-    }
+    private Vector3 velocity = Vector3.zero;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    private void OnEnable()
-    {
-        input.Enable();
-
-        input.Player.Move.performed += OnMovePerformed;
-        input.Player.Move.canceled += OnMoveCanceled;
-    }
-
-    private void OnDisable()
-    {
-        input.Disable();
-    }
-
     void Update()
     {
         Move();
-        UpdateAnimation();
+        UpdateAnimator();
     }
 
-    void OnMovePerformed(InputAction.CallbackContext context)
+    private void UpdateAnimator()
     {
-        float moveInput = context.ReadValue<float>();
-        movement = new Vector3(moveInput, 0f, 0f);
-
-        UpdateAnimation();
+        animator.SetFloat("movementSpeed", Mathf.Abs(velocity.x * speed));
     }
 
-    private void UpdateAnimation()
+    public void Move()
     {
-        animator.SetFloat("movementSpeed", Mathf.Abs(movement.x * speed));
+        transform.position += velocity * speed * Time.deltaTime;
+
+        if (velocity.x < 0f)
+        {
+            RotateLeft();
+        }
+        else if (velocity.x > 0f)
+        {
+            RotateRight();
+        }
     }
 
-    private void OnMoveCanceled(InputAction.CallbackContext context)
+    private void RotateRight()
     {
-        float moveInput = 0f;
-        movement = new Vector3(moveInput, 0f, 0f);
+        transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
     }
 
-    void Move()
+    private void RotateLeft()
     {
-        transform.position += movement * speed * Time.deltaTime;
-        float rotationY = movement.x >= 0 ? 0 : 180f;
-        transform.rotation = new Quaternion(0f, rotationY, 0f, 0f);
+        transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
+    }
+
+    public void StartMovement(Vector3 velocity)
+    {
+        this.velocity = velocity;
+    }
+
+    public void StopMovement()
+    {
+        velocity = Vector3.zero;
     }
 }

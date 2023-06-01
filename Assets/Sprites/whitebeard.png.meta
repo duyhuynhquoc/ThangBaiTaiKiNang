@@ -1487,7 +1487,7 @@ TextureImporter:
         serializedVersion: 2
         x: 786
         y: 7730
-        width: 75
+        width: 85
         height: 111
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -1498,27 +1498,6 @@ TextureImporter:
       bones: []
       spriteID: c7b6be8596f21415bbe6bb3273332027
       internalID: -1245082075
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: whitebeard_66
-      rect:
-        serializedVersion: 2
-        x: 865
-        y: 7792
-        width: 6
-        height: 4
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a88780ee63724aafaf613b05494ca2d
-      internalID: -1117711303
       vertices: []
       indices: 
       edges: []
@@ -1545,48 +1524,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whitebeard_68
-      rect:
-        serializedVersion: 2
-        x: 866
-        y: 7783
-        width: 5
-        height: 5
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fdad099ba463e44a4bfd2e080f8302f5
-      internalID: -465853875
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: whitebeard_69
-      rect:
-        serializedVersion: 2
-        x: 861
-        y: 7774
-        width: 5
-        height: 9
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd8b7db126e5d44e194066c54b3e58d8
-      internalID: 126980866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: whitebeard_70
       rect:
         serializedVersion: 2
@@ -1594,8 +1531,8 @@ TextureImporter:
         y: 7493
         width: 107
         height: 89
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.71, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1615,8 +1552,8 @@ TextureImporter:
         y: 7493
         width: 112
         height: 93
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1636,8 +1573,8 @@ TextureImporter:
         y: 7493
         width: 120
         height: 81
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.26, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1657,8 +1594,8 @@ TextureImporter:
         y: 7493
         width: 116
         height: 73
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.26, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1678,8 +1615,8 @@ TextureImporter:
         y: 7493
         width: 114
         height: 76
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.32, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1699,8 +1636,8 @@ TextureImporter:
         y: 7493
         width: 109
         height: 76
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.26, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1720,8 +1657,8 @@ TextureImporter:
         y: 7493
         width: 95
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
