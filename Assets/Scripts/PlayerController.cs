@@ -1,13 +1,14 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    private StateObject idleState;
+
     private PlayerInput input;
 
-    private Movement movement;
-    private Attack attack;
+    private Mover movement;
+    private StateMachine stateMachine;
 
     private void Awake()
     {
@@ -16,8 +17,11 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        movement = GetComponent<Movement>();
-        attack = GetComponent<Attack>();
+        movement = GetComponent<Mover>();
+        stateMachine = GetComponent<StateMachine>();
+
+        stateMachine.SetIdleStateObject(idleState);
+        stateMachine.SwitchToIdleState();
     }
 
     private void OnEnable()
@@ -30,57 +34,51 @@ public class PlayerController : MonoBehaviour
         input.Disable();
     }
 
-    private void Update()
-    {
-        if (TryAttack0())
-        {
-            return;
-        }
+    // private void FixedUpdate()
+    // {
+    //     if (TryAttack0())
+    //     {
+    //         return;
+    //     }
 
-        if (TryMove())
-        {
-            return;
-        }
-    }
+    //     if (TryMove())
+    //     {
+    //         return;
+    //     }
+    // }
 
-    bool TryMove()
-    {
-        if (attack.IsAttacking)
-        {
-            return false;
-        }
+    // bool TryMove()
+    // {
+    //     if (attack.IsAttacking)
+    //     {
+    //         return false;
+    //     }
 
-        float movementInput = input.Player.Move.ReadValue<float>();
+    //     float movementInput = input.Player.Move.ReadValue<float>();
 
-        if (movementInput == 0f)
-        {
-            return false;
-        }
+    //     movement.Move(movementInput);
 
-        Vector3 velocity = new Vector3(movementInput, 0f, 0f);
-        movement.StartMovement(velocity);
+    //     return movementInput != 0f;
+    // }
 
-        return true;
-    }
+    // private bool TryAttack0()
+    // {
+    //     if (attack.IsAttacking)
+    //     {
+    //         return false;
+    //     }
 
-    private bool TryAttack0()
-    {
-        if (attack.IsAttacking)
-        {
-            return false;
-        }
+    //     movement.StopMovement();
 
-        movement.StopMovement();
+    //     float attackInput = input.Player.Attack0.ReadValue<float>();
 
-        float attackInput = input.Player.Attack0.ReadValue<float>();
+    //     if (attackInput == 0f)
+    //     {
+    //         return false;
+    //     }
 
-        if (attackInput == 0f)
-        {
-            return false;
-        }
+    //     attack.StartAttack0();
 
-        attack.StartAttack0();
-
-        return true;
-    }
+    //     return true;
+    // }
 }
