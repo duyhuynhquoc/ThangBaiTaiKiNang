@@ -3,7 +3,12 @@ using UnityEngine;
 public class StateMachine : MonoBehaviour
 {
     public State currentState;
-    public StateObject idleStateObject;
+    private PlayerInput playerInput;
+
+    public void SetPlayerInput(PlayerInput _playerInput)
+    {
+        playerInput = _playerInput;
+    }
 
     private void Update()
     {
@@ -34,17 +39,10 @@ public class StateMachine : MonoBehaviour
         {
             currentState.OnEnter(this);
         }
-
-        Debug.Log(currentState.GetName());
-    }
-
-    public void SetIdleStateObject(StateObject idleStateObject)
-    {
-        this.idleStateObject = idleStateObject;
     }
 
     public void SwitchToIdleState()
     {
-        SwitchToState(new State(idleStateObject, 0f));
+        SwitchToState(new WhiteBeard_Idle(playerInput));
     }
 }

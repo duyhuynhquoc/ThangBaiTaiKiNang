@@ -2,17 +2,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private StateObject idleState;
-
-    private PlayerInput input;
+    private PlayerInput playerInput;
 
     private Mover movement;
     private StateMachine stateMachine;
 
     private void Awake()
     {
-        input = new PlayerInput();
+        playerInput = new PlayerInput();
+    }
+
+    private void OnEnable()
+    {
+        playerInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerInput.Disable();
     }
 
     private void Start()
@@ -20,18 +27,8 @@ public class PlayerController : MonoBehaviour
         movement = GetComponent<Mover>();
         stateMachine = GetComponent<StateMachine>();
 
-        stateMachine.SetIdleStateObject(idleState);
+        stateMachine.SetPlayerInput(playerInput);
         stateMachine.SwitchToIdleState();
-    }
-
-    private void OnEnable()
-    {
-        input.Enable();
-    }
-
-    private void OnDisable()
-    {
-        input.Disable();
     }
 
     // private void FixedUpdate()
