@@ -41,7 +41,7 @@ public class State : BaseState
         base.OnEnter(_stateMachine);
 
         animator = GetComponent<Animator>();
-        animator.Play(stateObject.GetAnimationClipName());
+        animator.SetTrigger(stateObject.GetAnimationClipName());
     }
 
     public override void OnUpdate()
@@ -54,18 +54,20 @@ public class State : BaseState
             {
                 stateMachine.SwitchToIdleState();
             }
-
-            comboWaitTime = Mathf.Max(comboWaitTime - Time.deltaTime, 0f);
-
-            for (int i = 0; i < nextStates.Count; i++)
+            else
             {
-                bool nextStateTriggered =
-                    nextStates[i].stateObject.inputAction.action.ReadValue<float>() != 0;
+                comboWaitTime = Mathf.Max(comboWaitTime - Time.deltaTime, 0f);
 
-                if (nextStateTriggered)
+                for (int i = 0; i < nextStates.Count; i++)
                 {
-                    stateMachine.SwitchToState(nextStates[i]);
-                    return;
+                    bool nextStateTriggered =
+                        nextStates[i].stateObject.inputAction.action.ReadValue<float>() != 0;
+
+                    if (nextStateTriggered)
+                    {
+                        stateMachine.SwitchToState(nextStates[i]);
+                        return;
+                    }
                 }
             }
         }
