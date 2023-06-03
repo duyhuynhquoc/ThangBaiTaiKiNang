@@ -14,7 +14,7 @@ public class StateObject : ScriptableObject
     [SerializeField]
     public StateObject[] nextStateObjects;
 
-    public String GetName()
+    public String GetAnimationClipName()
     {
         return animationClip.name;
     }

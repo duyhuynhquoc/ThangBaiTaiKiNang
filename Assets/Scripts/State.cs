@@ -11,7 +11,7 @@ public class State : BaseState
 
     public string GetName()
     {
-        return stateObject.GetName();
+        return stateObject.name;
     }
 
     public State(StateObject _stateObject)
@@ -41,7 +41,7 @@ public class State : BaseState
         base.OnEnter(_stateMachine);
 
         animator = GetComponent<Animator>();
-        animator.Play(stateObject.GetName());
+        animator.Play(stateObject.GetAnimationClipName());
     }
 
     public override void OnUpdate()
