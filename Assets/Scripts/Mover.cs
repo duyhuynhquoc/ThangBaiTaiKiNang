@@ -23,15 +23,7 @@ public class Mover : MonoBehaviour
         m_Animator = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-        UpdateAnimator();
-    }
-
-    private void UpdateAnimator()
-    {
-        m_Animator.SetFloat("movementSpeed", Mathf.Abs(m_Velocity.x));
-    }
+    void Update() { }
 
     public void Move(float movement)
     {
@@ -39,6 +31,8 @@ public class Mover : MonoBehaviour
             movement * 10f * m_Speed * Time.deltaTime,
             m_Rigidbody2D.velocity.y
         );
+
+        Debug.Log(m_Velocity);
 
         m_Rigidbody2D.velocity = Vector3.SmoothDamp(
             m_Rigidbody2D.velocity,

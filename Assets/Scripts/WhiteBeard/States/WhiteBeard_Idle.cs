@@ -15,18 +15,20 @@ public class WhiteBeard_Idle : State
     {
         base.OnUpdate();
 
-        // float attackInput = playerInput.Player.Attack0.ReadValue<float>();
+        float attackInput = playerInput.Player.Attack0.ReadValue<float>();
 
-        // if (attackInput != 0f)
-        // {
-        //     stateMachine.SwitchToState(new WhiteBear_Slash(playerInput));
-        // }
+        if (attackInput != 0f)
+        {
+            stateMachine.SwitchToState(new WhiteBear_Slash(playerInput));
+            return;
+        }
 
         float movementInput = playerInput.Player.Move.ReadValue<float>();
 
         if (movementInput != 0f)
         {
             stateMachine.SwitchToState(new WhiteBeard_Walk(playerInput));
+            return;
         }
     }
 }

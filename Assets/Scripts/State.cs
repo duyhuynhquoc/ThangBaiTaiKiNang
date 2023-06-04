@@ -3,6 +3,8 @@ using UnityEngine;
 public class State : BaseState
 {
     protected Animator animator;
+    protected Mover mover;
+
     protected PlayerInput playerInput;
 
     protected float duration = 0f;
@@ -18,6 +20,7 @@ public class State : BaseState
         base.OnEnter(_stateMachine);
 
         animator = GetComponent<Animator>();
+        mover = GetComponent<Mover>();
     }
 
     public override void OnUpdate()

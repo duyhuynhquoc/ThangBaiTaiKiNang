@@ -61,18 +61,18 @@ AnimatorController:
   m_Name: WhiteBeard
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: movementSpeed
+  - m_Name: MovementSpeed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: attack0
+    m_Controller: {fileID: 0}
+  - m_Name: Slash
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -95,7 +95,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: attack0
+    m_ConditionEvent: Slash
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2108925629455576100}
@@ -140,7 +140,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack0
+  m_Name: Slash
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -184,7 +184,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: movementSpeed
     m_Mirror: 0
-  m_BlendParameter: movementSpeed
+  m_BlendParameter: MovementSpeed
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1

@@ -504,7 +504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ac54fcf100a4b078b72a58d986af72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleState: {fileID: 11400000, guid: 7b3313830673f451882f713e66b53dae, type: 2}
 --- !u!50 &1320275985
 Rigidbody2D:
   serializedVersion: 4
@@ -580,7 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631e4d7a54ea84550b7f26a9f0983325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Speed: 15
+  m_Speed: 50
   m_MovementSmoothing: 0.05
 --- !u!114 &1320275989
 MonoBehaviour:
@@ -594,4 +593,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b8fa504a6d14e4a80ebbe94e78684a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleStateObject: {fileID: 0}
