@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
+    [SerializeField]
+    public Collider2D slashHitBox;
+
     public State currentState;
     private PlayerInput playerInput;
 
@@ -44,5 +47,10 @@ public class StateMachine : MonoBehaviour
     public void SwitchToIdleState()
     {
         SwitchToState(new WhiteBeard_Idle(playerInput));
+    }
+
+    public void Hit()
+    {
+        currentState.OnHit();
     }
 }

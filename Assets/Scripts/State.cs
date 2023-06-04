@@ -29,4 +29,6 @@ public class State : BaseState
 
         comboWaitTime = Mathf.Max(0f, comboWaitTime - Time.deltaTime);
     }
+
+    public virtual void OnHit() { }
 }

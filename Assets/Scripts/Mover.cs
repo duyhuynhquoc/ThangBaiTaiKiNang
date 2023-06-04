@@ -32,8 +32,6 @@ public class Mover : MonoBehaviour
             m_Rigidbody2D.velocity.y
         );
 
-        Debug.Log(m_Velocity);
-
         m_Rigidbody2D.velocity = Vector3.SmoothDamp(
             m_Rigidbody2D.velocity,
             targetVelocity,

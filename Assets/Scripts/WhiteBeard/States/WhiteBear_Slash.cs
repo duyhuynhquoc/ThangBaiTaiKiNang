@@ -25,4 +25,27 @@ public class WhiteBear_Slash : State
             stateMachine.SwitchToIdleState();
         }
     }
+
+    public override void OnHit()
+    {
+        Collider2D[] slashHitBoxResults = new Collider2D[10];
+
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.useTriggers = true;
+
+        stateMachine.slashHitBox.OverlapCollider(filter, slashHitBoxResults);
+
+        foreach (Collider2D collider in slashHitBoxResults)
+        {
+            if (collider == null)
+            {
+                continue;
+            }
+
+            if (collider.gameObject.CompareTag("Player2"))
+            {
+                Debug.Log("Hit Enemy!!!");
+            }
+        }
+    }
 }
