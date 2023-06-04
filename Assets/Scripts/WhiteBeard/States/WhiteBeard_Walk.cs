@@ -22,13 +22,22 @@ public class WhiteBeard_Walk : State
         if (attackInput != 0f)
         {
             animator.SetFloat("MovementSpeed", 0f);
-            stateMachine.SwitchToState(new WhiteBear_Slash(playerInput));
+            stateMachine.SwitchToState(new WhiteBeard_Slash(playerInput));
+            return;
+        }
+
+        float jumpInput = playerInput.Player.Jump.ReadValue<float>();
+
+        if (jumpInput != 0f)
+        {
+            animator.SetFloat("MovementSpeed", 0f);
+            stateMachine.SwitchToState(new WhiteBeard_Jump(playerInput));
             return;
         }
 
         float movementInput = playerInput.Player.Move.ReadValue<float>();
 
-        mover.Move(movementInput);
+        mover.Move(movementInput, false, false);
 
         if (movementInput == 0f)
         {

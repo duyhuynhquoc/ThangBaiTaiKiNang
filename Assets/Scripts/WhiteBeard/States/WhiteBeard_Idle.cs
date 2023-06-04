@@ -19,7 +19,7 @@ public class WhiteBeard_Idle : State
 
         if (attackInput != 0f)
         {
-            stateMachine.SwitchToState(new WhiteBear_Slash(playerInput));
+            stateMachine.SwitchToState(new WhiteBeard_Slash(playerInput));
             return;
         }
 
@@ -28,6 +28,14 @@ public class WhiteBeard_Idle : State
         if (movementInput != 0f)
         {
             stateMachine.SwitchToState(new WhiteBeard_Walk(playerInput));
+            return;
+        }
+
+        float jumpInput = playerInput.Player.Jump.ReadValue<float>();
+
+        if (jumpInput != 0f)
+        {
+            stateMachine.SwitchToState(new WhiteBeard_Jump(playerInput));
             return;
         }
     }

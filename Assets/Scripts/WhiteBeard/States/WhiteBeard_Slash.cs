@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class WhiteBear_Slash : State
+public class WhiteBeard_Slash : State
 {
-    public WhiteBear_Slash(PlayerInput _playerInput)
+    public WhiteBeard_Slash(PlayerInput _playerInput)
         : base(_playerInput)
     {
         duration = 1f;

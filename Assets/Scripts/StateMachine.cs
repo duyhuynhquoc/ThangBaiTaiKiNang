@@ -7,6 +7,12 @@ public class StateMachine : MonoBehaviour
 
     public State currentState;
     private PlayerInput playerInput;
+    protected Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     public void SetPlayerInput(PlayerInput _playerInput)
     {
@@ -52,5 +58,12 @@ public class StateMachine : MonoBehaviour
     public void Hit()
     {
         currentState.OnHit();
+    }
+
+    public void OnLanding()
+    {
+        animator.SetBool("IsJumping", false);
+        Debug.Log("Landing");
+        SwitchToIdleState();
     }
 }
