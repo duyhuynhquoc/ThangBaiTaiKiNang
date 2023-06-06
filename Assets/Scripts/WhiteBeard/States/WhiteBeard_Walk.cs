@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WhiteBeard_Walk : State
 {
@@ -17,7 +18,7 @@ public class WhiteBeard_Walk : State
     {
         base.OnUpdate();
 
-        float attackInput = playerInput.Player.Attack0.ReadValue<float>();
+        float attackInput = playerInput.actions.FindAction("Action1").ReadValue<float>();
 
         if (attackInput != 0f)
         {
@@ -26,7 +27,7 @@ public class WhiteBeard_Walk : State
             return;
         }
 
-        float jumpInput = playerInput.Player.Jump.ReadValue<float>();
+        float jumpInput = playerInput.actions.FindAction("Jump").ReadValue<float>();
 
         if (jumpInput != 0f)
         {
@@ -35,7 +36,7 @@ public class WhiteBeard_Walk : State
             return;
         }
 
-        float movementInput = playerInput.Player.Move.ReadValue<float>();
+        float movementInput = playerInput.actions.FindAction("Move").ReadValue<float>();
 
         mover.Move(movementInput, false, false);
 

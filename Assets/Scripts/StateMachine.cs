@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StateMachine : MonoBehaviour
 {
@@ -6,10 +7,12 @@ public class StateMachine : MonoBehaviour
     public Collider2D slashHitBox;
 
     public State currentState;
+
+    [SerializeField]
     private PlayerInput playerInput;
     protected Animator animator;
 
-    private void Awake()
+    private void Start()
     {
         animator = GetComponent<Animator>();
     }

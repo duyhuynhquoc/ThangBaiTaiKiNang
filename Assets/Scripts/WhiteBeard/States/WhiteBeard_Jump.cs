@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WhiteBeard_Jump : State
 {
@@ -17,7 +18,7 @@ public class WhiteBeard_Jump : State
     {
         base.OnUpdate();
 
-        float movementInput = playerInput.Player.Move.ReadValue<float>();
+        float movementInput = playerInput.actions.FindAction("Move").ReadValue<float>();
 
         mover.Move(movementInput, false, true);
     }
